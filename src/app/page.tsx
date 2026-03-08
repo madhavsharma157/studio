@@ -1,4 +1,3 @@
-
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
@@ -8,6 +7,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function HomePage() {
   const heroImage = PlaceHolderImages.find(img => img.id === 'school-hero');
+  const mapImage = PlaceHolderImages.find(img => img.id === 'location-map');
 
   return (
     <div className="min-h-screen bg-background">
@@ -34,14 +34,16 @@ export default function HomePage() {
       <main className="max-w-7xl mx-auto px-6 py-12">
         {/* Hero Section */}
         <section className="relative rounded-3xl overflow-hidden mb-16 shadow-2xl h-[400px]">
-          <Image 
-            src={heroImage?.imageUrl || ''} 
-            alt="School Campus" 
-            fill 
-            className="object-cover"
-            priority
-            data-ai-hint="modern school"
-          />
+          {heroImage?.imageUrl && (
+            <Image 
+              src={heroImage.imageUrl} 
+              alt="School Campus" 
+              fill 
+              className="object-cover"
+              priority
+              data-ai-hint="modern school"
+            />
+          )}
           <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-transparent flex flex-col justify-center px-12 text-white">
             <h1 className="text-5xl font-extrabold mb-4 font-headline leading-tight max-w-2xl">
               Locate & Manage Educational Hubs Effortlessly
@@ -89,7 +91,7 @@ export default function HomePage() {
           <Card className="hover:shadow-lg transition-all border-none bg-white">
             <CardHeader>
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                <Navigation className="h-6 w-6 text-primary" />
+                <NavigationIcon className="h-6 w-6 text-primary" />
               </div>
               <CardTitle className="font-headline">Geo-Optimization</CardTitle>
               <CardDescription>Haversine algorithms ensure pinpoint accuracy in distance calculations.</CardDescription>
@@ -120,13 +122,15 @@ export default function HomePage() {
             </ul>
           </div>
           <div className="flex-1 relative w-full h-[300px] rounded-2xl overflow-hidden shadow-inner">
-             <Image 
-                src={PlaceHolderImages.find(img => img.id === 'location-map')?.imageUrl || ''} 
-                alt="Location Map" 
-                fill 
-                className="object-cover opacity-80"
-                data-ai-hint="map location"
-             />
+             {mapImage?.imageUrl && (
+               <Image 
+                  src={mapImage.imageUrl} 
+                  alt="Location Map" 
+                  fill 
+                  className="object-cover opacity-80"
+                  data-ai-hint="map location"
+               />
+             )}
           </div>
         </section>
       </main>
@@ -148,8 +152,7 @@ export default function HomePage() {
   );
 }
 
-// Hallucinated icon fix
-function Navigation({ className }: { className?: string }) {
+function NavigationIcon({ className }: { className?: string }) {
   return (
     <svg 
       xmlns="http://www.w3.org/2000/svg" 

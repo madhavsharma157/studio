@@ -1,3 +1,16 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "school-hero",
+      "description": "Modern school campus architecture",
+      "imageUrl": "https://picsum.photos/seed/geo-school/1200/600",
+      "imageHint": "modern school"
+    },
+    {
+      "id": "location-map",
+      "description": "Abstract map with location pins",
+      "imageUrl": "https://picsum.photos/seed/map-pins/800/400",
+      "imageHint": "map location"
+    }
+  ]
 }
