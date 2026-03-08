@@ -34,7 +34,7 @@ export default function HomePage() {
       <main className="max-w-7xl mx-auto px-6 py-12">
         {/* Hero Section */}
         <section className="relative rounded-3xl overflow-hidden mb-16 shadow-2xl h-[400px]">
-          {heroImage?.imageUrl && (
+          {heroImage?.imageUrl ? (
             <Image 
               src={heroImage.imageUrl} 
               alt="School Campus" 
@@ -43,7 +43,7 @@ export default function HomePage() {
               priority
               data-ai-hint="modern school"
             />
-          )}
+          ) : null}
           <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-transparent flex flex-col justify-center px-12 text-white">
             <h1 className="text-5xl font-extrabold mb-4 font-headline leading-tight max-w-2xl">
               Locate & Manage Educational Hubs Effortlessly
@@ -122,7 +122,7 @@ export default function HomePage() {
             </ul>
           </div>
           <div className="flex-1 relative w-full h-[300px] rounded-2xl overflow-hidden shadow-inner">
-             {mapImage?.imageUrl && (
+             {mapImage?.imageUrl ? (
                <Image 
                   src={mapImage.imageUrl} 
                   alt="Location Map" 
@@ -130,7 +130,7 @@ export default function HomePage() {
                   className="object-cover opacity-80"
                   data-ai-hint="map location"
                />
-             )}
+             ) : null}
           </div>
         </section>
       </main>
