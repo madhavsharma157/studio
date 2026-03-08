@@ -10,7 +10,7 @@ export default function HomePage() {
   const mapImage = PlaceHolderImages.find(img => img.id === 'location-map');
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background text-foreground selection:bg-accent selection:text-primary">
       {/* Navigation */}
       <nav className="bg-primary border-b border-primary-foreground/10 py-4 px-6 sticky top-0 z-50 shadow-md">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
@@ -33,13 +33,13 @@ export default function HomePage() {
 
       <main className="max-w-7xl mx-auto px-6 py-12">
         {/* Hero Section */}
-        <section className="relative rounded-3xl overflow-hidden mb-16 shadow-2xl h-[400px]">
+        <section className="relative rounded-3xl overflow-hidden mb-16 shadow-2xl h-[400px] bg-primary">
           {heroImage?.imageUrl ? (
             <Image 
               src={heroImage.imageUrl} 
               alt="School Campus" 
               fill 
-              className="object-cover"
+              className="object-cover opacity-60"
               priority
               data-ai-hint="modern school"
             />
@@ -121,7 +121,7 @@ export default function HomePage() {
               </li>
             </ul>
           </div>
-          <div className="flex-1 relative w-full h-[300px] rounded-2xl overflow-hidden shadow-inner">
+          <div className="flex-1 relative w-full h-[300px] rounded-2xl overflow-hidden shadow-inner bg-muted">
              {mapImage?.imageUrl ? (
                <Image 
                   src={mapImage.imageUrl} 
@@ -156,14 +156,10 @@ function NavigationIcon({ className }: { className?: string }) {
   return (
     <svg 
       xmlns="http://www.w3.org/2000/svg" 
-      width="24" 
-      height="24" 
-      viewBox="0 0 24 24" 
-      fill="none" 
-      stroke="currentColor" 
-      strokeWidth="2" 
-      strokeLinecap="round" 
-      strokeLinejoin="round" 
+      width="24" height="24" 
+      viewBox="0 0 24 24" fill="none" 
+      stroke="currentColor" strokeWidth="2" 
+      strokeLinecap="round" strokeLinejoin="round" 
       className={className}
     >
       <path d="m3 11 19-9-9 19-2-8-8-2Z" />
